@@ -43,21 +43,30 @@ function gombKattintas() {
 }
 
 function szamotKiir() {
-    Class("kifejezes")[0].innerHTML += event.target.innerHTML
+    if (!(Class("kifejezes")[0].innerHTML.includes("="))) {
+        Class("kifejezes")[0].innerHTML += event.target.innerHTML
+    }
+    else {
+        alert("már megnyomtad az egyenlőség jelet, ha mást szeretnél számolni, nyomd meg a 'C' betűt")
+    }
 }
 
 function muveletetKiir() {
     if (!(Class("kifejezes")[0].innerHTML == "")) {
         muvjel = event.target.innerHTML
         Class("kifejezes")[0].innerHTML += event.target.innerHTML
-    }else{
-        alert("még nincs szám..")
+    } else {
+        alert("nincs szám a kijelzőn")
     }
-    
+
 }
 function torol() {
     Class("kifejezes")[0].innerHTML = ""
 }
 function eredmenytKiir() {
-    Class("kifejezes")[0].innerHTML += "="
+    if (!(Class("kifejezes")[0].innerHTML == "")) {
+        Class("kifejezes")[0].innerHTML += "="
+    } else {
+        alert("nincs szám a kijelzőn")
+    }
 }
