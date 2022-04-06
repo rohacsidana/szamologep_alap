@@ -59,20 +59,31 @@ function muveletetKiir() {
 }
 function torol() {
     Class("kifejezes")[0].innerHTML = ""
+    Class("eredmeny")[0].innerHTML = ""
 }
 function eredmenytKiir() {
     var muveletTomb = Class("kifejezes")[0].innerHTML.split(muvjel)
-    var eredmeny = muveletTomb[0]
     console.log(muveletTomb)
     console.log(muvjel)
-    for (let i = 0; i < muveletTomb.length; i++) {
-        Class("eredmeny")[0].innerHTML = eredmeny, muvjel, muveletTomb[i]
+    var eredmeny = 0
+    switch (muvjel) {
+        case "+":
+            eredmeny = Number(muveletTomb[0]) + Number(muveletTomb[1])
+            break;
+        case "-":
+            eredmeny = Number(muveletTomb[0]) - Number(muveletTomb[1])
+            break;
+        case "*":
+            eredmeny = Number(muveletTomb[0]) * Number(muveletTomb[1])
+            break;
+        case "/":
+            eredmeny = Number(muveletTomb[0]) / Number(muveletTomb[1])
+            break;
+        default:
+            break;
     }
-
-
-    if (!(Class("kifejezes")[0].innerHTML == "")) {
+    Class("eredmeny")[0].innerHTML = eredmeny
+    if (!(Class("kifejezes")[0].innerHTML == "") && !(Class("kifejezes")[0].innerHTML.includes("="))) {
         Class("kifejezes")[0].innerHTML += "="
-    } else {
-        alert("nincs szám a kijelzőn")
     }
 }
