@@ -1,6 +1,5 @@
 window.addEventListener("load", init)
-var mivjel = ""
-var egyenlo = false
+var muvjel = ""
 function ID(elem) {
     return document.getElementById(elem)
 }
@@ -33,25 +32,32 @@ function gombKattintas() {
             szamGombok[i].addEventListener("click", torol)
         }
         else if (szamGombok[i].innerHTML === "=") {
-            szamGombok[i].addEventListener("click", kijelzoreIr)
             szamGombok[i].addEventListener("click", eredmenytKiir)
-            egyenlo = true
-
+        }
+        else if (szamGombok[i].innerHTML === "*" || szamGombok[i].innerHTML === "/" || szamGombok[i].innerHTML === "+" || szamGombok[i].innerHTML === "-") {
+            szamGombok[i].addEventListener("click", muveletetKiir)
         } else {
-            szamGombok[i].addEventListener("click", kijelzoreIr)
-            if (szamGombok[i].innerHTML === "*" || szamGombok[i].innerHTML === "/" || szamGombok[i].innerHTML === "+" || szamGombok[i].innerHTML === "-") {
-                muvjel = szamGombok[i].innerHTML
-            }
+            szamGombok[i].addEventListener("click", szamotKiir)
         }
     }
 }
 
-function kijelzoreIr() {
+function szamotKiir() {
     Class("kifejezes")[0].innerHTML += event.target.innerHTML
+}
+
+function muveletetKiir() {
+    if (!(Class("kifejezes")[0].innerHTML == "")) {
+        muvjel = event.target.innerHTML
+        Class("kifejezes")[0].innerHTML += event.target.innerHTML
+    }else{
+        alert("még nincs szám..")
+    }
+    
 }
 function torol() {
     Class("kifejezes")[0].innerHTML = ""
 }
 function eredmenytKiir() {
-
+    Class("kifejezes")[0].innerHTML += "="
 }
