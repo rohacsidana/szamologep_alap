@@ -23,9 +23,13 @@ article {
     padding: 5px;
 }
 .szamok {
-   
+   display: flex;
+   flex-wrap: wrap;
+   justify-content: center;
 }
 .szamok button {
+    width: 32%;
+    margin: .5px;
     
 }
 .muvjelek {
